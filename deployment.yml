@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-java-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-java
+  template:
+    metadata:
+      labels:
+        app: nginx-java
+    spec:
+      containers:
+      - name: nginx-java
+        image: ankur099/mydemoprojecthub:latest
+        ports:
+        - containerPort: 80

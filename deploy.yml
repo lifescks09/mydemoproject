@@ -1,0 +1,11 @@
+---
+- hosts: kubernetes
+  tasks:
+    - name: Deploy to Kubernetes
+      k8s:
+        state: present
+        definition: "{{ lookup('file', 'deployment.yml') }}"
+    - name: Expose service
+      k8s:
+        state: present
+        definition: "{{ lookup('file', 'service.yml') }}"
